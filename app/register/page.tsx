@@ -96,7 +96,7 @@ setError("")
 
 return(
 
- <div className="min-h-[90vh] bg-cover bg-center flex items-center 
+ <div className="min-h-[90vh] w-full py-6 px-4 bg-cover bg-center flex items-center 
 
  justify-center gap-6 sm:justify-evenly max-sm:flex-col backdrop-blur-2xl">
 
@@ -119,7 +119,7 @@ return(
 
 
 
- <form onSubmit={handlerSignUp} className="border-2 bg-white/5 text-white border-gray-500 p-6 flex flex-col gap-6 rounded-lg shadow-lg">
+ <form onSubmit={handlerSignUp} className="max-w-md border-2 bg-white/5 text-white border-gray-500 p-4 sm:p-6 flex flex-col gap-3 sm:gap-6 rounded-lg shadow-lg">
 
 
  <h2 className="font-medium text-2xl flex justify-between items-center cursor-pointer">Sign up</h2>

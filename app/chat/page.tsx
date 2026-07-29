@@ -431,7 +431,6 @@ export default function ChatPage () {
 
 const [selectUser , setSelectUser] = useState<SelectedUser | null>(null)
 
-const [unreadCounts, setUnreadCounts] = useState<{ [key: string]: number }>({});
 return(
 
 
@@ -452,7 +451,7 @@ return(
 
   <div className="flex flex-col min-h-0 h-full md:col-span-2">
 
-         <ChatWindow selectedUser={selectUser} setUnreadCounts={setUnreadCounts} />
+         <ChatWindow selectedUser={selectUser}  />
 
     </div>  {/* flex flex-col h-full */}
 

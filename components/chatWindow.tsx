@@ -9,7 +9,6 @@ import { motion } from "motion/react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
-
 interface SelectedUser {
 
 _id : string ,
@@ -69,8 +68,6 @@ export default function ChatWindow({ selectedUser }:ChatWindowProps){
 
 
  const messageEndRef =  useRef <HTMLDivElement>(null) // عشان نحدد اخر رسالة فين ونبدأ نعمل سكورول ليها
-
-const [unreadCounts, setUnreadCounts] = useState<{ [key: string]: number }>({});
 
 
 const [currentUserId, setCurrentUserId] = useState<string | null>(null);

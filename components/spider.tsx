@@ -76,10 +76,7 @@ const handleSelectAndReset = (user: { _id: string; username: string; profilePic?
   onSelectUser(user);
 
   // 2. ننظف العداد للمستخدم ده
-  setUnreadCounts((prev) => ({
-    ...prev,
-    [user._id]: 0,
-  }));
+ 
 };
 
 

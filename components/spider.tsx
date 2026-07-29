@@ -69,7 +69,6 @@ const handleLogOut = () => {
 }
 
 
-const [unreadCounts, setUnreadCounts] = useState<{ [key: string]: number }>({});
 
 
 const handleSelectAndReset = (user: { _id: string; username: string; profilePic?: { url: string } }) => {
@@ -219,7 +218,7 @@ transition={{ duration: 0.2, ease: "easeOut" }}
 </motion.div>
 
 
-<UserList selectedUser={selectedUser} onSelectUser={handleSelectAndReset} myId = {currentUserId} SearchUser={searchUser} unreadCounts={unreadCounts}  />
+<UserList selectedUser={selectedUser} onSelectUser={handleSelectAndReset} myId = {currentUserId} SearchUser={searchUser} />
 
 </div> //{/*  pb-5  */}
 

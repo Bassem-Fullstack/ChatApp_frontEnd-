@@ -434,11 +434,10 @@ const [selectUser , setSelectUser] = useState<SelectedUser | null>(null)
 return(
 
 
-<div className="border w-full h-screen px-[0.15%] py-[4%] sm:px-[6%] sm:py-[2.5%] md:px-[10%] md:py-[3%] lg:px-[12%] lg:py-[3%]">
+<div className="border w-full h-screen px-3 py-4 sm:px-6 sm:py-6 md:px-10 md:py-8 lg:px-16 lg:py-10">
 
   
-  <div className="backdrop-blur-xl border-2 border-gray-600 rounded-2xl overflow-hidden h-[100%] max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 relative">
-  
+  <div className="backdrop-blur-xl border-2 border-gray-600 rounded-2xl overflow-hidden h-full max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 relative">
   
  <div className="border-r border-gray-600  overflow-y-auto">
 

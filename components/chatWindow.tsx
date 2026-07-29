@@ -360,7 +360,7 @@ if (!selectedUser) {
    <div className="flex flex-col h-full">
 
 
-    <div className="flex items-center gap-3 p-3 w-[520px] border-b  border-gray-600">
+    <div className="flex items-center gap-3 p-3 border-b  border-gray-600">
       
  
    <div className="relative w-10 h-10 ">
@@ -430,7 +430,7 @@ return (
       
 
 
-    <div className="flex items-center gap-2 p-4 w-[520px] border-t border-gray-600" >
+    <div className="flex items-center gap-2 p-4  border-t border-gray-600" >
 
       
       <input type="text" value={newMessage} 

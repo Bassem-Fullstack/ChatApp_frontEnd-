@@ -17,11 +17,28 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { FcGoogle } from "react-icons/fc"
 
+import { useTypewriter , Cursor } from "react-simple-typewriter"
 
 
+import { motion } from "motion/react"
 
-export default function LoginPage() {
+export default function RegisterPage() {
  
+
+const [text] = useTypewriter({
+
+ words : ["Loading..."] ,
+
+ loop : true ,
+
+ delaySpeed : 500 ,
+
+ deleteSpeed : 50
+
+
+})
+
+
 
 const [showPassword , setShowPassword] = useState(false) 
 
@@ -104,13 +121,31 @@ return(
  {/* ----- left picture */} 
 
 
-<div className="flex flex-col gap-2 justify-center items-center mt-5 md:mt-0">
+<motion.div className="flex flex-col gap-2 justify-center items-center mt-5 md:mt-0"
 
-<img alt="Quick Chat" src="/logp_icon2.svg" className="w-[70px] md:w-[100px] max-w-full" />
+  initial={{ opacity: 0, x: -40 }}
 
+  animate={{ opacity: 1, x: 0 }}
+  
+  transition={{ duration: 0.6, ease: "easeOut" }}
+>
+
+<motion.img 
+
+  alt="Quick Chat" 
+
+  src="/logo_icon.svg" 
+
+  className="w-[70px] md:w-[100px] max-w-full"
+
+  animate={{ y: [0, -8, 0] }}
+
+  transition={{ duration: 0.8, repeat: Infinity, ease: "easeInOut" }}
+
+/>
   <p className="text-white md:text-3xl text-2xl font-medium">Quick Chat</p>
 
-</div>   {/* flex flex-col justify-center items-center  */}
+</motion.div>   {/* flex flex-col justify-center items-center  */}
 
 
 
@@ -119,19 +154,76 @@ return(
 
 
 
- <form onSubmit={handlerSignUp} className="max-w-md border-2 bg-white/5 text-white border-gray-500 p-4 sm:p-6 flex flex-col gap-3 sm:gap-6 rounded-lg shadow-lg">
+ <motion.form onSubmit={handlerSignUp} className="max-w-md border-2 bg-white/5 text-white border-gray-500 p-4 sm:p-6 flex flex-col gap-3 sm:gap-6 rounded-lg shadow-lg"
+ 
+  initial={{ opacity: 0, y: 40 }}
+
+  animate={{ opacity: 1, y: 0 }}
+
+  transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+
+ >
 
 
  <h2 className="font-medium text-2xl flex justify-between items-center cursor-pointer">Sign up</h2>
 
- {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+ {error && <motion.p className="text-red-500 text-sm text-center"
+ 
+  initial={{ opacity: 0, y: -10 }}
 
- <input type="text" value={username} onChange={(e)=> setUserName(e.target.value)} className="p-2 border bg-white/5 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Username" />
+    animate={{ opacity: 1, y: 0 }}
 
- <input type="email" value={email} onChange={(e)=> setEmail(e.target.value)} className="p-2 border bg-white/5 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Email" />
+    exit={{ opacity: 0 }}
+
+ >
+  
+  {error}
+ 
+ 
+ </motion.p>}
 
 
-<div className="relative">
+ <motion.input type="text" value={username} onChange={(e)=> setUserName(e.target.value)} className="p-2 border bg-white/5 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Username"
+ 
+  initial={{ opacity: 0, y: 15 }}
+
+  animate={{ opacity: 1, y: 0 }}
+
+  transition={{ duration: 0.4, delay: 0.25 }}
+
+ 
+ />
+
+ <motion.input 
+
+  type="email" 
+
+  value={email} 
+
+  onChange={(e)=> setEmail(e.target.value)} 
+
+  className="p-2 border bg-white/5 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+
+  placeholder="Email"
+
+  initial={{ opacity: 0, y: 15 }}
+
+  animate={{ opacity: 1, y: 0 }}
+
+  transition={{ duration: 0.4, delay: 0.35 }}
+
+ />
+
+
+<motion.div  className="relative"
+
+initial={{ opacity: 0, y: 15 }}
+
+  animate={{ opacity: 1, y: 0 }}
+
+  transition={{ duration: 0.4, delay: 0.45 }}
+
+>
 
  <input type={showPassword ? "text" : "password"} value={password} onChange={(e)=> setPassword(e.target.value)} className="p-2 border w-full  bg-white/5 border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Password"  />
 
@@ -146,44 +238,69 @@ return(
 
   </button>
 
-  </div> {/*  relative  */}
+  </motion.div> {/*  relative  */}
 
   
- <div className="flex flex-col justify-center items-center gap-3">
+ <motion.div className="flex flex-col justify-center items-center gap-3"
+ 
+   initial={{ opacity: 0, y: 15 }}
+
+  animate={{ opacity: 1, y: 0 }}
+
+  transition={{ duration: 0.4, delay: 0.55 }}
+
+
+ 
+ >
   
- <button type="submit" disabled={loading} className="py-3 bg-gradient-to-tr from-purple-400 w-full to-violet-600 
+ <motion.button  type="submit" disabled={loading} className="py-3 bg-gradient-to-tr from-purple-400 w-full to-violet-600 
 
- text-white rounded-md cursor-pointer
+ text-white rounded-md cursor-pointer"
+ whileHover={{ scale: 1.02 }}
 
- ">
+  whileTap={{ scale: 0.97 }}
+ 
+ >
 
- {loading ? "Loading ..." : "Create Account"}
+ {loading ?<>{text}<Cursor cursorStyle="|" /></> : "Create Account"}
     
 
 
-    </button>
+    </motion.button>
 
  
 
- <a 
+ <motion.a 
     
-    href="https://chatapp-production-7953.up.railway.app/users/google" 
+    href="https://quick-chat-api.bonto.run/users/google" 
     
 className="w-full flex items-center justify-center gap-2 border border-gray-500 bg-white/5 text-white p-2 rounded-md mt-3 hover:bg-white/10 transition-all"    
+    
+      whileHover={{ scale: 1.02 }}
+
+    whileTap={{ scale: 0.97 }}
     >
       
      <FcGoogle size={24}  />
     
       Login With Google
       
-      </a>
+      </motion.a >
 
-  </div> 
+  </motion.div> 
 
     
 
    
-<div className="flex items-center gap-2 text-sm text-gray-300">
+<motion.div  className="flex items-center gap-2 text-sm text-gray-300"
+
+initial={{ opacity: 0 }}
+
+  animate={{ opacity: 1 }}
+
+  transition={{ duration: 0.4, delay: 0.65 }}
+
+>
 
  
  <input type="checkbox" required checked = {agree} onChange={(e)=> setAgree(e.target.checked)} />
@@ -192,7 +309,7 @@ className="w-full flex items-center justify-center gap-2 border border-gray-500 
 
 
 
-   </div> {/*  flex items-center gap-2 text-sm text-gray-500  */}
+   </motion.div> {/*  flex items-center gap-2 text-sm text-gray-500  */}
 
  <p className="text-center text-sm text-gray-400"> Already have an account?{" "}
 
@@ -205,7 +322,7 @@ className="w-full flex items-center justify-center gap-2 border border-gray-500 
  </p>  {/*  text-center text-sm text-gray-400  */}
 
 
- </form> {/*  border-2 bg-white/8 text-white border-gray-500 p-6  */}
+ </motion.form> {/*  border-2 bg-white/8 text-white border-gray-500 p-6  */}
 
 
  </div>  //{/*  min-h-screen bg-cover bg-center  */}

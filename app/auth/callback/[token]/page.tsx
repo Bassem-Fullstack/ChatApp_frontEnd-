@@ -1,10 +1,14 @@
 
 "use client"
 
+import { jwtDecode } from "jwt-decode"
 import { useParams, useRouter } from "next/navigation"
 import { useEffect } from "react"
 
- 
+
+ interface DecodedToken {
+  userId: string
+}
 
 export default function GoogleCallback(){
 
@@ -19,13 +23,34 @@ const router = useRouter()
 
 
 useEffect(() => {
+
   if (token) {
 
     const tokenString = Array.isArray(token) ? token[0] : token
 
-    localStorage.setItem("token", tokenString)
 
+    try{
+       
+      // احنا عايزين نفك توكين بتاع مستخدم لما سجل دخول بجوجل عشان خاطر نفعل زر الاخضر بتاع سوكيت لان انت معملتش ايدي للمستخدم سجل بجوجل تربطوة مع سوكيت عشان كدة حملنا مكتبة نفك توكين بتاعنا ونجيب منة الايدي ونخزنوة في لوكيل ستوريج
+      
+      const decode = jwtDecode<DecodedToken>(tokenString)
+
+      localStorage.setItem("token", tokenString)
+
+      localStorage.setItem("userId" , decode.userId)
+          
     router.push("/chat")
+
+    }
+       
+    catch(err){
+     
+      console.log(err)
+
+      router.push("/login")
+
+    }
+
   }
 }, [token])
 

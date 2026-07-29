@@ -6,7 +6,7 @@ import axios from "axios";
 
 const api = axios.create({
 
-baseURL : "https://chatapp-production-7953.up.railway.app" ,
+baseURL : "https://quick-chat-api.bonto.run" ,
 
 withCredentials: true,
 

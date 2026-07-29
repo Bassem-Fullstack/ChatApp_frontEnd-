@@ -178,47 +178,55 @@ import Image from "next/image"
 
 import { useState } from "react"
 
-import LoginPage from "./register/page"
 
-import { usePathname } from "next/navigation"
+
+import { redirect, usePathname } from "next/navigation"
+
+import LoginPage from "./login/page"
+
+import RegisterPage from "./register/page"
+
 
  
 
 export default function HomePage () {
 
+  redirect("/register")
 
-  const [selectUser , setSelectUser] = useState(false)
+//   const [selectUser , setSelectUser] = useState(false)
   
-  const pathname = usePathname() 
+//   const pathname = usePathname() 
 
-  const isChat =pathname==="/chat" // عشان نعمل بوردر استخدمنا مسار شات نعمل بوردر في مسار شات فقط
-
- 
-
-  return (
-
-  <div className={`border h-screen sm:px-[15%] sm:py-[5%] w-full md:px-[5%] md:py-[3%]  `}>
-
-  <Image fill alt="background"  src="/bgImage.svg"  className="object-cover" />
+//   const isChat =pathname==="/chat" // عشان نعمل بوردر استخدمنا مسار شات نعمل بوردر في مسار شات فقط
 
  
- <div className={`backdrop-blur-xl ${isChat ? "border-2 border-gray-600": ""} rounded-2xl 
+
+//   return (
+
+//   <div className={`border h-screen sm:px-[15%] sm:py-[5%] w-full md:px-[5%] md:py-[3%] `}>
+
  
- overflow-hidden  grid-cols-1 relative 
+//  <div className={`backdrop-blur-xl ${isChat ? "border-2 border-gray-600": ""} rounded-2xl 
  
- ${selectUser ? "md:grid-cols-[1fr_1.5fr_1fr] xl:grid-cols-[1fr_2fr_1fr]" : "md:grid-cols-2"} 
+//  overflow-hidden  grid-cols-1 relative 
+ 
+//  ${selectUser ? "md:grid-cols-[1fr_1.5fr_1fr] xl:grid-cols-[1fr_2fr_1fr]" : "md:grid-cols-2"} 
 
- `}>
-
-
-<LoginPage/>
-
- </div> {/*  backdrop-blur-xl border-2 border-gray-600 rounded-2xl */}
+//  `}>
 
 
- </div>  //{/*  border w-full h-screen sm:px-[15%] sm:py-[5%]  */}
+ 
+//  <RegisterPage/> 
 
-  )
+//   <LoginPage/>
+
+
+//  </div> {/*  backdrop-blur-xl border-2 border-gray-600 rounded-2xl */}
+
+
+//  </div>  //{/*  border w-full h-screen sm:px-[15%] sm:py-[5%]  */}
+
+//   )
 
 
 } 

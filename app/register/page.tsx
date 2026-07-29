@@ -113,7 +113,7 @@ setError("")
 
 return(
 
- <div className="min-h-[90vh] w-full py-6 px-4 bg-cover bg-center flex items-center 
+ <div className="min-h-screen w-full py-6 px-4 bg-cover bg-center flex items-center 
 
  justify-center gap-6 sm:justify-evenly max-sm:flex-col backdrop-blur-2xl">
 
